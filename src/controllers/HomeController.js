@@ -8,8 +8,7 @@ let getHomePage = (req, res) => {
 let postWebhook = (req, res) => {
   let body = req.body;
 
-  console.log(` \ u{ 1F7EA } Received webhook :`);
-  console.dir(body, { depth: null });
+  // Checks this is an event from a page subscription
   if (body.object === "page") {
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function (entry) {
@@ -29,10 +28,11 @@ let postWebhook = (req, res) => {
         handlePostback(sender_psid, webhook_event.postback);
       }
     });
+
     // Returns a '200 OK' response to all requests
-    res.status(200).send("EVENT_RECEIVED"); // Determine which webhooks were triggered and get sender PSIDs and locale, message content and more. ...
+    res.status(200).send("EVENT_RECEIVED");
   } else {
-    // Return a '404 Not Found' if event is not from a page subscription
+    // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
 };
