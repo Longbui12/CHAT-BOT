@@ -24,6 +24,7 @@ let setupProfile = (req, res) => {
       json: request_body,
     },
     (err, res, body) => {
+      console.log(body);
       if (!err) {
         console.log("Setup user profile succeed !");
       } else {
