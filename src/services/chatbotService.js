@@ -55,10 +55,16 @@ let handleGetStarted = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
       let username = await getUserName(sender_psid);
-      let response = {
+      let response1 = {
         text: `OK ! Xin chào mừng bạn ${username} đến với nhà hàng của chúng tôi .`,
       };
-      await callSendAPI(sender_psid, response);
+      let response2 = sendGetStartedTemplate();
+
+      // send text message
+      await callSendAPI(sender_psid, response1);
+
+      // send generic template message
+      await callSendAPI(sender_psid, response2);
       resolve("done");
     } catch (e) {
       reject(e);
@@ -66,6 +72,41 @@ let handleGetStarted = (sender_psid) => {
   });
 };
 
+let sendGetStartedTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Xin chào bạn đến với nhà hàng Long Bùi Restaurant",
+            subtitle: "Dưới đây là các lựa chọn của nhà hàng",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "MENU CHÍNH",
+                payload: "MAIN_MENU",
+              },
+              {
+                type: "postback",
+                title: "ĐẶT BÀN",
+                payload: "RESERVE_TABLE",
+              },
+              {
+                type: "postback",
+                title: "HƯỚNG DẪN SỬ DỤNG BOT",
+                payload: "GUIDE_TO_USE",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
 module.exports = {
   handleGetStarted,
 };
