@@ -11,7 +11,7 @@ let setupProfile = (req, res) => {
   // call profile faceBook API
   // Construct the message body
   let request_body = {
-    get_started: "GET_STARTED",
+    get_started: { payload: "GET_STARTED" },
     whitelistes_domains: "https://long-chat-bot.onrender.com/",
   };
 
