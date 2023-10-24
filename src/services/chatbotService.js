@@ -35,7 +35,7 @@ let handleGetStarted = () => {
       let response = {
         text: "OK ! Xin chào mừng bạn ... đến với nhà hàng của chúng tôi .",
       };
-      await this.callSendAPI(response);
+      await callSendAPI(response);
       resolve("done");
     } catch (e) {
       reject(e);
