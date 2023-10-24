@@ -12,13 +12,13 @@ let setupProfile = (req, res) => {
   // Construct the message body
   let request_body = {
     get_started: { payload: "GET_STARTED" },
-    whitelistes_domains: "https://long-chat-bot.onrender.com/",
+    whitelistes_domains: ["https://long-chat-bot.onrender.com/"],
   };
 
   // Send the HTTP request to the Messenger Platform
   request(
     {
-      uri: `https://graph.facebook.com/v9.0/me/messages_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      uri: `https://graph.facebook.com/v9.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
       qs: { access_token: PAGE_ACCESS_TOKEN },
       method: "POST",
       json: request_body,
