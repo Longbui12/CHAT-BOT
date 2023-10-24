@@ -1,6 +1,6 @@
 require("dotenv").config();
 import request from "request";
-
+import chatbotService from "../services/chatbotService";
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 let getHomePage = (req, res) => {
@@ -139,7 +139,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handle messaging_postback events
-function handlePostback(sender_psid, received_postback) {
+async function handlePostback(sender_psid, received_postback) {
   let response;
 
   // Get the payload for the postback
@@ -157,10 +157,9 @@ function handlePostback(sender_psid, received_postback) {
       break;
     case "GET_STARTED":
       //code
-      response = {
-        text: "OK ! Xin chào mừng bạn ... đến với nhà hàng của chúng tôi .",
-      };
+      await chatbotService.handleGetStarted();
       break;
+
     default:
       //code
       response = {
@@ -168,8 +167,8 @@ function handlePostback(sender_psid, received_postback) {
       };
   }
 
-  // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+  // // Send the message to acknowledge the postback
+  // callSendAPI(sender_psid, response);
 }
 
 // Sends response messages via the send API
