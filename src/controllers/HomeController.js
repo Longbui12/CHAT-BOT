@@ -3,7 +3,6 @@ import request from "request";
 import chatbotService from "../services/chatbotService";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-const IMAGE_GET_STARTED = "https://bit.ly/long-bot1";
 
 let getHomePage = (req, res) => {
   return res.render("homepage.ejs");
