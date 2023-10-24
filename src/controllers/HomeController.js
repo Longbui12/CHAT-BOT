@@ -9,14 +9,11 @@ let getHomePage = (req, res) => {
 };
 
 let setupProfile = async (req, res) => {
-  // call profile faceBook API
-  // Construct the message body
   let request_body = {
     get_started: { payload: "GET_STARTED" },
     whitelistes_domains: ["https://long-chat-bot.onrender.com/"],
   };
 
-  // Send the HTTP request to the Messenger Platform
   await request(
     {
       uri: `https://graph.facebook.com/v18.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
@@ -43,50 +40,38 @@ let postWebhook = (req, res) => {
   console.dir(body, { depth: null });
 
   if (body.object === "page") {
-    // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function (entry) {
-      // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
 
-      // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
       console.log("Sender PSID: " + sender_psid);
 
-      // Check if the event is a message or postback and
-      // pass the event to the appropriate handler function
       if (webhook_event.message) {
         handleMessage(sender_psid, webhook_event.message);
       } else if (webhook_event.postback) {
         handlePostback(sender_psid, webhook_event.postback);
       }
     });
-    // Returns a '200 OK' response to all requests
-    res.status(200).send("EVENT_RECEIVED"); // Determine which webhooks were triggered and get sender PSIDs and locale, message content and more. ...
+
+    res.status(200).send("EVENT_RECEIVED");
   } else {
-    // Return a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
 };
 
 let getWebhook = (req, res) => {
-  // your verify token , should be a random string
   let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
-  // Parse the query params
   let mode = req.query["hub.mode"];
   let token = req.query["hub.verify_token"];
   let challenge = req.query["hub.challenge"];
 
-  // Check if a token and mode is in the query string of the request
   if (mode && token) {
-    // Check the mode and token sent is correct
     if (mode === "subscribe" && token === VERIFY_TOKEN) {
-      // Respond with the challenge token from the request
       console.log("WEBHOOK_VERIFIED");
       res.status(200).send(challenge);
     } else {
-      // Respond with '403 Forbidden' if verify tokens do not match
       res.sendStatus(403);
     }
   }
@@ -96,10 +81,7 @@ let getWebhook = (req, res) => {
 function handleMessage(sender_psid, received_message) {
   let response;
 
-  // Checks if the message contains text
   if (received_message.text) {
-    // Create the payload for a basic text message, which
-    // will be added to the body of our request to the Send API
     response = {
       text: `You sent the message: "${received_message.text}". Now send me an attachment!`,
     };
@@ -156,6 +138,8 @@ async function handlePostback(sender_psid, received_postback) {
       //code
       response = { text: "Oops, try sending another image." };
       break;
+
+    case "RESTART_BOT":
     case "GET_STARTED":
       //code
       await chatbotService.handleGetStarted(sender_psid);
@@ -174,7 +158,6 @@ async function handlePostback(sender_psid, received_postback) {
 
 // Sends response messages via the send API
 function callSendAPI(sender_psid, response) {
-  // Construct the message body
   let request_body = {
     recipient: {
       id: sender_psid,
@@ -182,7 +165,6 @@ function callSendAPI(sender_psid, response) {
     message: response,
   };
 
-  // Send the HTTP request to the Messenger Platform
   request(
     {
       uri: "https://graph.facebook.com/v2.6/me/messages",
@@ -199,9 +181,58 @@ function callSendAPI(sender_psid, response) {
     }
   );
 }
+
+let setupPersistentMenu = async (req, res) => {
+  let request_body = {
+    persistent_menu: [
+      {
+        locale: "default",
+        composer_input_disabled: false,
+        call_to_actions: [
+          {
+            type: "web_url",
+            title: "Test cho Long chat bot",
+            url: "https://www.youtube.com/watch?v=A-tX5PI3V0o",
+            webview_height_ratio: "full",
+          },
+          {
+            type: "web_url",
+            title: "Page Long bui Restaurant",
+            url: "https://www.facebook.com/profile.php?id=61552617513254",
+            webview_height_ratio: "full",
+          },
+          {
+            type: "postback",
+            title: "Khởi động lại bot",
+            payload: "RESTART_BOT",
+          },
+        ],
+      },
+    ],
+  };
+
+  await request(
+    {
+      uri: `https://graph.facebook.com/v18.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
+    },
+    (err, res, body) => {
+      console.log(body);
+      if (!err) {
+        console.log("Setup persistent menu succeed !");
+      } else {
+        console.error("Unable to Setup user profile:" + err);
+      }
+    }
+  );
+  return res.send("Setup persistent menu succeed !");
+};
 module.exports = {
   getHomePage,
   postWebhook,
   getWebhook,
   setupProfile,
+  setupPersistentMenu,
 };
