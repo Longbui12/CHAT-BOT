@@ -2,7 +2,8 @@ import request from "request";
 require("dotenv").config();
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-const IMAGE_GET_STARTED = "https://bit.ly/long-bot1";
+const IMAGE_GET_STARTED =
+  "https://assets.architecturaldigest.in/photos/6385cf3311f0276636badfb6/16:9/w_1920,c_limit/DSC_8367-Edit-W.png";
 
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
