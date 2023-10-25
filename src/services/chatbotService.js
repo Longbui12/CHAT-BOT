@@ -5,7 +5,8 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const IMAGE_GET_STARTED = "https://bit.ly/long-bot1";
 const IMAGE_MAIN_MENU_2 = "https://bit.ly/long-bot2";
 const IMAGE_MAIN_MENU_3 = "https://bit.ly/long-bot3";
-//const IMAGE_MAIN_MENU_4 = "https://bit.ly/long-bott4";
+const IMAGE_MAIN_MENU_4 =
+  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D";
 
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
@@ -174,7 +175,7 @@ let getMainMenuTemplate = () => {
             title: "Không gian nhà hàng",
             subtitle:
               "Nhà hàng có sức chứa lên đến 300 khách ngồi và các bữa tiệc lớn .",
-            image_url: IMAGE_GET_STARTED,
+            image_url: IMAGE_MAIN_MENU_4,
             buttons: [
               {
                 type: "postback",
