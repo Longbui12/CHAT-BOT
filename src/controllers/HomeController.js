@@ -1,7 +1,6 @@
 require("dotenv").config();
 import request from "request";
 import chatbotService from "../services/chatbotService";
-import chatbotService2 from "../services/chatbotService2";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
@@ -177,7 +176,7 @@ async function handlePostback(sender_psid, received_postback) {
       break;
 
     case "SHOW_ROOMS":
-      await chatbotService2.handleShowDetailRooms(sender_psid);
+      await chatbotService.handleShowDetailRooms(sender_psid);
       break;
 
     default:
