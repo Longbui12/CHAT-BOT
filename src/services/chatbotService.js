@@ -217,52 +217,53 @@ let getBreakFastMenuTemplate = () => {
         template_type: "generic",
         elements: [
           {
-            title: "Menu của nhà hàng",
-            subtitle:
-              "Chúng tôi hân hạnh mang đến cho bạn thực đơn phong phú cho các bữa ăn trong ngày .",
-            image_url: IMAGE_MAIN_MENU_2,
+            title: "Món ăn sáng nhanh",
+            subtitle: "Nhà hàng cũng có bán những món fast-food vào buổi sáng.",
+            image_url: IMAGE_VIEW_APPETIZERS,
             buttons: [
               {
+                // Appetizers
                 type: "postback",
-                title: "BỮA SÁNG",
-                payload: "BREAK_FAST_MENU",
-              },
-              {
-                type: "postback",
-                title: "BỮA TRƯA",
-                payload: "LUNCH_MENU",
-              },
-              {
-                type: "postback",
-                title: "BỮA TỐI",
-                payload: "DINNER_MENU",
+                title: "XEM CHI TIẾT",
+                payload: "VIEW_BREAK_FAST",
               },
             ],
           },
 
           {
-            title: "Giờ mở cửa :",
-            subtitle: "T2-T6 5:AM - 10:PM | T7 & CN 6:AM - 9:PM",
-            image_url: IMAGE_MAIN_MENU_3,
+            title: "Món Phở",
+            subtitle: "Phở bò, phở gà, phở khô .",
+            image_url: IMAGE_VIEW_FISH,
             buttons: [
               {
                 type: "postback",
-                title: "ĐẶT BÀN",
-                payload: "RESERVE_TABLE",
+                title: "XEM CHI TIẾT",
+                payload: "VIEW_PHO",
               },
             ],
           },
 
           {
-            title: "Không gian nhà hàng",
-            subtitle:
-              "Nhà hàng có sức chứa lên đến 300 khách ngồi và các bữa tiệc lớn .",
-            image_url: IMAGE_MAIN_MENU_4,
+            title: "Món Bún",
+            subtitle: "Bún bò huế, Bún măng gà, Bún mắm, Bún chả v..v.",
+            image_url: IMAGE_VIEW_MEAT,
             buttons: [
               {
                 type: "postback",
-                title: "CHI TIẾT CỦA PHÒNG",
-                payload: "SHOW_ROOMS",
+                title: "XEM CHI TIẾT",
+                payload: "VIEW_BUN",
+              },
+            ],
+          },
+          {
+            title: "Bánh mỳ chảo",
+            subtitle: "Bò né, Ốp la, v..v.",
+            image_url: IMAGE_VIEW_MEAT,
+            buttons: [
+              {
+                type: "postback",
+                title: "XEM CHI TIẾT",
+                payload: "VIEW_BREAD",
               },
             ],
           },

@@ -156,6 +156,11 @@ async function handlePostback(sender_psid, received_postback) {
       await chatbotService.handleSendDinnerMenu(sender_psid);
       break;
 
+    case "VIEW_BREAK_FAST":
+    case "VIEW_PHO":
+    case "VIEW_BUN":
+    case "VIEW_BREAD":
+
     case "VIEW_APPETIZERS":
     case "VIEW_FISH":
     case "VIEW_MEAT":
