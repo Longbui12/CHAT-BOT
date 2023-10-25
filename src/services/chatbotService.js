@@ -444,10 +444,15 @@ let getDinnerMenuTemplate = () => {
   return response;
 };
 //===========================================//
+
+let handleBackToMainMenu = async (sender_psid) => {
+  await handleSendMainMenu(sender_psid);
+};
 module.exports = {
   handleGetStarted,
   handleSendMainMenu,
   handleSendBreakFastMenu,
   handleSendLunchMenu,
   handleSendDinnerMenu,
+  handleBackToMainMenu,
 };
