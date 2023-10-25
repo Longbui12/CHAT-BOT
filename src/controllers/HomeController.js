@@ -146,6 +146,19 @@ async function handlePostback(sender_psid, received_postback) {
       await chatbotService.handleSendMainMenu(sender_psid);
       break;
 
+    case "BREAK_FAST_MENU":
+      await chatbotService.handleSendBreakFastMenu(sender_psid);
+      break;
+    case "LUNCH_MENU":
+      await chatbotService.handleSendLunchMenu(sender_psid);
+      break;
+    case "DINNER_MENU":
+      await chatbotService.handleSendDinnerMenu(sender_psid);
+      break;
+
+    case "VIEW_APPETIZERS":
+    case "VIEW_POTATO":
+    case "VIEW_MEAT":
     default:
       response = {
         text: `Opp ! I don't know response with postback ${postback}`,
