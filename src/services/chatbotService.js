@@ -7,6 +7,16 @@ const IMAGE_MAIN_MENU_2 = "https://bit.ly/long-bot2";
 const IMAGE_MAIN_MENU_3 = "https://bit.ly/long-bot3";
 const IMAGE_MAIN_MENU_4 =
   "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D";
+// ============================= //
+const IMAGE_VIEW_FAST_FOOD =
+  "https://t4.ftcdn.net/jpg/02/10/97/65/240_F_210976505_c4vXGI6NCIaV8qlANGNP1gDPIt2rjYjC.jpg";
+const IMAGE_VIEW_PHO =
+  "https://i-giadinh.vnecdn.net/2021/03/07/nhngang1-1615086549-6552-1615087048.jpg";
+const IMAGE_VIEW_BUN =
+  "https://vivu.net/uploads/2022/05/Nuoc-dung-hao-hang-dem-lai-huong-vi-tuyet-voi-cho-mon-dac-san-Hue-noi-tieng-.jpeg";
+const IMAGE_VIEW_BREAD =
+  "https://product.hstatic.net/1000365253/product/the_coffee_club_vietnam_bo_ne_1_a0d03151eaa54fc48fc0e21237055c25_1024x1024.jpg";
+// ============================= //
 
 const IMAGE_VIEW_APPETIZERS = "https://bit.ly/3Se3ukf";
 const IMAGE_VIEW_FISH = "https://bit.ly/40pOVwd";
@@ -219,7 +229,7 @@ let getBreakFastMenuTemplate = () => {
           {
             title: "Món ăn sáng nhanh",
             subtitle: "Nhà hàng cũng có bán những món fast-food vào buổi sáng.",
-            image_url: IMAGE_VIEW_APPETIZERS,
+            image_url: IMAGE_VIEW_FAST_FOOD,
             buttons: [
               {
                 // Appetizers
@@ -233,7 +243,7 @@ let getBreakFastMenuTemplate = () => {
           {
             title: "Món Phở",
             subtitle: "Phở bò, phở gà, phở khô .",
-            image_url: IMAGE_VIEW_FISH,
+            image_url: IMAGE_VIEW_PHO,
             buttons: [
               {
                 type: "postback",
@@ -246,7 +256,7 @@ let getBreakFastMenuTemplate = () => {
           {
             title: "Món Bún",
             subtitle: "Bún bò huế, Bún măng gà, Bún mắm, Bún chả v..v.",
-            image_url: IMAGE_VIEW_MEAT,
+            image_url: IMAGE_VIEW_BUN,
             buttons: [
               {
                 type: "postback",
@@ -258,7 +268,7 @@ let getBreakFastMenuTemplate = () => {
           {
             title: "Bánh mỳ chảo",
             subtitle: "Bò né, Ốp la, v..v.",
-            image_url: IMAGE_VIEW_MEAT,
+            image_url: IMAGE_VIEW_BREAD,
             buttons: [
               {
                 type: "postback",
