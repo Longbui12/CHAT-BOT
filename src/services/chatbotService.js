@@ -308,53 +308,54 @@ let getBreakFastMenuTemplate = () => {
         template_type: "generic",
         elements: [
           {
-            title: "Món ăn sáng nhanh",
-            subtitle: "Nhà hàng cũng có bán những món fast-food vào buổi sáng.",
-            image_url: IMAGE_VIEW_FAST_FOOD,
+            title: "Món khai vị",
+            subtitle: "Nhà hàng có nhiều món khai vị hấp dẫn .",
+            image_url: IMAGE_VIEW_APPETIZERS,
             buttons: [
               {
                 // Appetizers
                 type: "postback",
                 title: "XEM CHI TIẾT",
-                payload: "VIEW_BREAK_FAST",
+                payload: "VIEW_APPETIZERS",
               },
             ],
           },
 
           {
-            title: "Món Phở",
-            subtitle: "Phở bò, phở gà, phở khô .",
-            image_url: IMAGE_VIEW_PHO,
+            title: "Các loại cá",
+            subtitle: "Cá nước mặn, nước ngọt , nước lợ .",
+            image_url: IMAGE_VIEW_FISH,
             buttons: [
               {
                 type: "postback",
                 title: "XEM CHI TIẾT",
-                payload: "VIEW_PHO",
+                payload: "VIEW_FISH",
               },
             ],
           },
 
           {
-            title: "Món Bún",
-            subtitle: "Bún bò huế, Bún măng gà, Bún mắm, Bún chả v..v.",
-            image_url: IMAGE_VIEW_BUN,
+            title: "Beef Steak",
+            subtitle: "Thịt bò được nhập khẩu từ Mỹ , Úc và Nhật .",
+            image_url: IMAGE_VIEW_MEAT,
             buttons: [
               {
                 type: "postback",
                 title: "XEM CHI TIẾT",
-                payload: "VIEW_BUN",
+                payload: "VIEW_MEAT",
               },
             ],
           },
+
           {
-            title: "Bánh mỳ chảo",
-            subtitle: "Bò né, Ốp la, v..v.",
-            image_url: IMAGE_VIEW_BREAD,
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại Menu chính.",
+            image_url: IMAGE_BACK_MAIN_MENU,
             buttons: [
               {
                 type: "postback",
-                title: "XEM CHI TIẾT",
-                payload: "VIEW_BREAD",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_MAIN_MENU",
               },
             ],
           },
@@ -467,52 +468,54 @@ let getDinnerMenuTemplate = () => {
         template_type: "generic",
         elements: [
           {
-            title: "Menu của nhà hàng",
-            subtitle:
-              "Chúng tôi hân hạnh mang đến cho bạn thực đơn phong phú cho các bữa ăn trong ngày .",
-            image_url: IMAGE_MAIN_MENU_2,
+            title: "Món khai vị",
+            subtitle: "Nhà hàng có nhiều món khai vị hấp dẫn .",
+            image_url: IMAGE_VIEW_APPETIZERS,
             buttons: [
               {
+                // Appetizers
                 type: "postback",
-                title: "BỮA SÁNG",
-                payload: "BREAK_FAST_MENU",
-              },
-              {
-                type: "postback",
-                title: "BỮA TRƯA",
-                payload: "LUNCH_MENU",
-              },
-              {
-                type: "postback",
-                title: "BỮA TỐI",
-                payload: "DINNER_MENU",
+                title: "XEM CHI TIẾT",
+                payload: "VIEW_APPETIZERS",
               },
             ],
           },
 
           {
-            title: "Giờ mở cửa :",
-            subtitle: "T2-T6 5:AM - 10:PM | T7 & CN 6:AM - 9:PM",
-            image_url: IMAGE_MAIN_MENU_3,
+            title: "Các loại cá",
+            subtitle: "Cá nước mặn, nước ngọt , nước lợ .",
+            image_url: IMAGE_VIEW_FISH,
             buttons: [
               {
                 type: "postback",
-                title: "ĐẶT BÀN",
-                payload: "RESERVE_TABLE",
+                title: "XEM CHI TIẾT",
+                payload: "VIEW_FISH",
               },
             ],
           },
 
           {
-            title: "Không gian nhà hàng",
-            subtitle:
-              "Nhà hàng có sức chứa lên đến 300 khách ngồi và các bữa tiệc lớn .",
-            image_url: IMAGE_MAIN_MENU_4,
+            title: "Beef Steak",
+            subtitle: "Thịt bò được nhập khẩu từ Mỹ , Úc và Nhật .",
+            image_url: IMAGE_VIEW_MEAT,
             buttons: [
               {
                 type: "postback",
-                title: "CHI TIẾT CỦA PHÒNG",
-                payload: "SHOW_ROOMS",
+                title: "XEM CHI TIẾT",
+                payload: "VIEW_MEAT",
+              },
+            ],
+          },
+
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại Menu chính.",
+            image_url: IMAGE_BACK_MAIN_MENU,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_MAIN_MENU",
               },
             ],
           },
