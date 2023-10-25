@@ -8,6 +8,10 @@ const IMAGE_MAIN_MENU_3 = "https://bit.ly/long-bot3";
 const IMAGE_MAIN_MENU_4 =
   "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D";
 
+const IMAGE_VIEW_APPETIZERS = "https://bit.ly/long-bot5";
+const IMAGE_VIEW_FISH = "https://bit.ly/long-bot6";
+const IMAGE_VIEW_MEAT = "https://bit.ly/long-bot7";
+
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
   let request_body = {
@@ -293,7 +297,7 @@ let getLunchMenuTemplate = () => {
           {
             title: "Món khai vị",
             subtitle: "Nhà hàng có nhiều món khai vị hấp dẫn .",
-            image_url: IMAGE_MAIN_MENU_2,
+            image_url: IMAGE_VIEW_APPETIZERS,
             buttons: [
               {
                 // Appetizers
@@ -305,14 +309,14 @@ let getLunchMenuTemplate = () => {
           },
 
           {
-            title: "Khoai tây chiên",
-            subtitle: "Khoai tây chiên ngọt và chiên mặn",
-            image_url: IMAGE_MAIN_MENU_3,
+            title: "Các loại cá",
+            subtitle: "Cá nước mặn, nước ngọt , nước lợ .",
+            image_url: IMAGE_VIEW_FISH,
             buttons: [
               {
                 type: "postback",
                 title: "XEM CHI TIẾT",
-                payload: "VIEW_POTATO",
+                payload: "VIEW_FISH",
               },
             ],
           },
@@ -320,7 +324,7 @@ let getLunchMenuTemplate = () => {
           {
             title: "Beef Steak",
             subtitle: "Thịt bò được nhập khẩu từ Mỹ , Úc và Nhật .",
-            image_url: IMAGE_MAIN_MENU_4,
+            image_url: IMAGE_VIEW_MEAT,
             buttons: [
               {
                 type: "postback",

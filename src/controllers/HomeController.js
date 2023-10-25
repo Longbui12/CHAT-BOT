@@ -157,7 +157,7 @@ async function handlePostback(sender_psid, received_postback) {
       break;
 
     case "VIEW_APPETIZERS":
-    case "VIEW_POTATO":
+    case "VIEW_FISH":
     case "VIEW_MEAT":
     default:
       response = {
