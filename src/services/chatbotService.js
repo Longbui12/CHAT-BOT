@@ -3,6 +3,9 @@ require("dotenv").config();
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const IMAGE_GET_STARTED = "https://bit.ly/long-bot1";
+const IMAGE_MAIN_MENU_2 = "https://bit.ly/long-bot2";
+const IMAGE_MAIN_MENU_3 = "https://bit.ly/long-bot3";
+const IMAGE_MAIN_MENU_4 = "https://bit.ly/long-bott4";
 
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
@@ -134,12 +137,12 @@ let getMainMenuTemplate = () => {
             title: "Menu của nhà hàng",
             subtitle:
               "Chúng tôi hân hạnh mang đến cho bạn thực đơn phong phú cho các bữa ăn trong ngày .",
-            image_url: IMAGE_GET_STARTED,
+            image_url: IMAGE_MAIN_MENU_2,
             buttons: [
               {
                 type: "postback",
                 title: "BỮA SÁNG",
-                payload: "BREAK_FIRST_MENU",
+                payload: "BREAK_FAST_MENU",
               },
               {
                 type: "postback",
@@ -157,7 +160,7 @@ let getMainMenuTemplate = () => {
           {
             title: "Giờ mở cửa :",
             subtitle: "T2-T6 5:AM - 10:PM | T7 & CN 6:AM - 9:PM",
-            image_url: IMAGE_GET_STARTED,
+            image_url: IMAGE_MAIN_MENU_3,
             buttons: [
               {
                 type: "postback",
@@ -171,7 +174,7 @@ let getMainMenuTemplate = () => {
             title: "Không gian nhà hàng",
             subtitle:
               "Nhà hàng có sức chứa lên đến 300 khách ngồi và các bữa tiệc lớn .",
-            image_url: IMAGE_GET_STARTED,
+            image_url: IMAGE_MAIN_MENU_4,
             buttons: [
               {
                 type: "postback",
