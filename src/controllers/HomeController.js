@@ -162,15 +162,21 @@ async function handlePostback(sender_psid, received_postback) {
     case "VIEW_BREAD":
 
     case "VIEW_APPETIZERS":
+      await chatbotService.handleDetailViewAppetizers(sender_psid);
+      break;
     case "VIEW_FISH":
+      await chatbotService.handleDetailViewFish(sender_psid);
+      break;
     case "VIEW_MEAT":
+      await chatbotService.handleDetailViewMeat(sender_psid);
+      break;
 
     case "BACK_TO_MAIN_MENU":
       await chatbotService.handleBackToMainMenu(sender_psid);
       break;
     default:
       response = {
-        text: `Opp ! I don't know response with postback ${postback}`,
+        text: `Opp ! I don't know response with postback ${payload}`,
       };
   }
 

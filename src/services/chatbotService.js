@@ -24,6 +24,27 @@ const IMAGE_VIEW_MEAT = "https://bit.ly/40b0jvF";
 
 const IMAGE_BACK_MAIN_MENU = "https://bit.ly/4957slc";
 
+const IMAGE_DETAIL_APPETIZER_1 = "https://bit.ly/3Qs0Iqd";
+const IMAGE_DETAIL_APPETIZER_2 = "https://bit.ly/3Mfwu7k";
+const IMAGE_DETAIL_APPETIZER_3 =
+  "https://beptruong.edu.vn/wp-content/uploads/2016/08/goi-bo-bop-thau.jpg";
+
+const IMAGE_DETAIL_FISH_1 =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9VnxNfci-tifZ-JRbDIQ-ATn4JVA4NJ1iApbVc7_vgiYVt6zWIExPlBPazlBEFngO-gY&usqp=CAU";
+const IMAGE_DETAIL_FISH_2 =
+  "https://www.sashimihome.com/wp-content/uploads/Sashimi-C%C3%A1-Ng%E1%BB%AB-Nh%E1%BA%ADt-B%E1%BA%A3n-%E2%80%93-M%C3%B3n-%C4%82n-%C4%90%E1%BA%B3ng-C%E1%BA%A5p-Nh%E1%BA%ADt-B%E1%BA%A3n.jpg";
+const IMAGE_DETAIL_FISH_3 =
+  "https://cakholangvudai.com/wp-content/uploads/2015/07/ca-mu-sot-me1.jpg";
+
+const IMAGE_DETAIL_MEAT_1 =
+  "https://thitbo.vivusea.com/upload/cache/article/bo-wagyu-uc_(3)_(1)_thumb.jpg";
+const IMAGE_DETAIL_MEAT_2 =
+  "https://www.uob.com.vn/iwov-resources/images/promotion-detail/cuisine-world-corner-308/corner-308-472x332.jpg";
+const IMAGE_DETAIL_MEAT_3 =
+  "https://pos.nvncdn.net/867afd-52643/art/20201218_jtZMCbefeaJFaM4W6XfuHuUZ.png";
+
+// Handle function
+
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
   let request_body = {
@@ -448,6 +469,179 @@ let getDinnerMenuTemplate = () => {
 let handleBackToMainMenu = async (sender_psid) => {
   await handleSendMainMenu(sender_psid);
 };
+
+let handleDetailViewAppetizers = async (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewAppetizerTemplate();
+
+      await callSendAPI(sender_psid, response1);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+let handleDetailViewFish = async (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewFishTemplate();
+
+      await callSendAPI(sender_psid, response1);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+let handleDetailViewMeat = async (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewMeatTemplate();
+
+      await callSendAPI(sender_psid, response1);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let getDetailViewAppetizerTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Khoai tây chiên",
+            subtitle: "100.000đ/1 phần",
+            image_url: IMAGE_DETAIL_APPETIZER_1,
+          },
+
+          {
+            title: "Hoa chuối trộn",
+            subtitle: "150.000đ/1 phần",
+            image_url: IMAGE_DETAIL_APPETIZER_2,
+          },
+
+          {
+            title: "Gân bò bóp chua",
+            subtitle: "180.000đ/1 phần",
+            image_url: IMAGE_DETAIL_APPETIZER_3,
+          },
+
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại Menu chính.",
+            image_url: IMAGE_BACK_MAIN_MENU,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_MAIN_MENU",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
+
+let getDetailViewFishTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Cá hồi Châu Âu",
+            subtitle: "450.000đ/1 kg",
+            image_url: IMAGE_DETAIL_FISH_1,
+          },
+
+          {
+            title: "Cá ngừ đại dương",
+            subtitle: "570.000đ/1 kg",
+            image_url: IMAGE_DETAIL_FISH_2,
+          },
+
+          {
+            title: "Cá mú",
+            subtitle: "500.000đ/1 kg",
+            image_url: IMAGE_DETAIL_FISH_3,
+          },
+
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại Menu chính.",
+            image_url: IMAGE_BACK_MAIN_MENU,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_MAIN_MENU",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
+
+let getDetailViewMeatTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Thịt bò kobe",
+            subtitle: "1.120.000đ/1 phần",
+            image_url: IMAGE_DETAIL_MEAT_1,
+          },
+
+          {
+            title: "Thịt cừu",
+            subtitle: "200.000đ/1 phần",
+            image_url: IMAGE_DETAIL_MEAT_2,
+          },
+
+          {
+            title: "Thịt heo hun khói",
+            subtitle: "290.000đ/1 phần",
+            image_url: IMAGE_DETAIL_MEAT_3,
+          },
+
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại Menu chính.",
+            image_url: IMAGE_BACK_MAIN_MENU,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_MAIN_MENU",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
 module.exports = {
   handleGetStarted,
   handleSendMainMenu,
@@ -455,4 +649,7 @@ module.exports = {
   handleSendLunchMenu,
   handleSendDinnerMenu,
   handleBackToMainMenu,
+  handleDetailViewAppetizers,
+  handleDetailViewFish,
+  handleDetailViewMeat,
 };
