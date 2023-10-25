@@ -12,8 +12,8 @@ let callSendAPI = async (sender_psid, response) => {
     message: response,
   };
 
-  await sendMarkReadMessage(sender_psid);
-  await sendTypingOn(sender_psid);
+  //   await sendMarkReadMessage(sender_psid);
+  //   await sendTypingOn(sender_psid);
 
   // Send the HTTP request to the Messenger Platform
   request(
