@@ -1,6 +1,7 @@
 require("dotenv").config();
 import request from "request";
 import chatbotService from "../services/chatbotService";
+import chatbotService2 from "../services/chatbotService2";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
@@ -174,6 +175,11 @@ async function handlePostback(sender_psid, received_postback) {
     case "BACK_TO_MAIN_MENU":
       await chatbotService.handleBackToMainMenu(sender_psid);
       break;
+
+    case "SHOW_ROOMS":
+      await chatbotService2.handleShowDetailRooms(sender_psid);
+      break;
+
     default:
       response = {
         text: `Opp ! I don't know response with postback ${payload}`,
