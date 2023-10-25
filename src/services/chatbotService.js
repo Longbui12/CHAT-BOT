@@ -138,17 +138,17 @@ let getMainMenuTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "Bữa sáng",
+                title: "BỮA SÁNG",
                 payload: "BREAK_FIRST_MENU",
               },
               {
                 type: "postback",
-                title: "Bữa trưa",
+                title: "BỮA TRƯA",
                 payload: "LUNCH_MENU",
               },
               {
                 type: "postback",
-                title: "Bữa tối",
+                title: "BỮA TỐI",
                 payload: "DINNER_MENU",
               },
             ],
@@ -156,7 +156,7 @@ let getMainMenuTemplate = () => {
 
           {
             title: "Giờ mở cửa :",
-            subtitle: "T2-T6 5AM - 10PM | T7 & CN 6AM - 9PM",
+            subtitle: "T2-T6 5:AM - 10:PM | T7 & CN 6:AM - 9:PM",
             image_url: IMAGE_GET_STARTED,
             buttons: [
               {
