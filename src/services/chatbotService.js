@@ -8,9 +8,9 @@ const IMAGE_MAIN_MENU_3 = "https://bit.ly/long-bot3";
 const IMAGE_MAIN_MENU_4 =
   "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D";
 
-const IMAGE_VIEW_APPETIZERS = "https://bit.ly/long-bot5";
-const IMAGE_VIEW_FISH = "https://bit.ly/long-bot6";
-const IMAGE_VIEW_MEAT = "https://bit.ly/long-bot7";
+const IMAGE_VIEW_APPETIZERS = "https://bit.ly/3Se3ukf";
+const IMAGE_VIEW_FISH = "https://bit.ly/40pOVwd";
+const IMAGE_VIEW_MEAT = "https://bit.ly/40b0jvF";
 
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
