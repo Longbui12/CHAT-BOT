@@ -6,7 +6,7 @@ const IMAGE_GET_STARTED = "https://bit.ly/long-bot1";
 const IMAGE_MAIN_MENU_2 = "https://bit.ly/long-bot2";
 const IMAGE_MAIN_MENU_3 = "https://bit.ly/long-bot3";
 const IMAGE_MAIN_MENU_4 =
-  "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D";
 
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
