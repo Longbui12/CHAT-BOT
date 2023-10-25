@@ -5,7 +5,7 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const IMAGE_GET_STARTED = "https://bit.ly/long-bot1";
 const IMAGE_MAIN_MENU_2 = "https://bit.ly/long-bot2";
 const IMAGE_MAIN_MENU_3 = "https://bit.ly/long-bot3";
-const IMAGE_MAIN_MENU_4 = "https://bit.ly/long-bott4";
+const IMAGE_MAIN_MENU_4 = "https://bit.ly/long-bot4";
 
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
