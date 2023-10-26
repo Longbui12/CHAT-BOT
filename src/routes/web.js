@@ -5,6 +5,7 @@ let router = express.Router();
 let initWebRoutes = (app) => {
   router.get("/", HomeController.getHomePage);
   router.get("/reserve-table", HomeController.handleReserveTable);
+  router.post("/reserve-table-ajax", HomeController.handlePostReserveTable);
 
   // setup get startrd button , whilelisted domain
   router.post("/setup-profile", HomeController.setupProfile);
@@ -14,8 +15,6 @@ let initWebRoutes = (app) => {
 
   router.post("/webhook", HomeController.postWebhook);
   router.get("/webhook", HomeController.getWebhook);
-
-  router.post("/reserve-table-ajax", HomeController.handlePostReserveTable);
 
   return app.use("/", router);
 };
