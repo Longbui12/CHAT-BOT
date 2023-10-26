@@ -11,6 +11,8 @@
 })(document, "script", "Messenger");
 
 window.extAsyncInit = function () {
+  // the Messenger Extensions JS SDK is done loading
+
   MessengerExtensions.getContext(
     "1107898446864515",
     function success(thread_context) {
@@ -21,7 +23,7 @@ window.extAsyncInit = function () {
     },
     function error(err) {
       // error
-      console.log("Lỗi đặt bàn Long chat bot", err);
+      console.log("Lỗi đặt bàn Eric bot", err);
     }
   );
 };
