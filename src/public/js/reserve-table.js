@@ -23,7 +23,13 @@ window.extAsyncInit = function () {
     },
     function error(err) {
       // error
-      console.log("Lỗi đặt bàn Long Chat bot", err);
+      console.log(
+        "Lỗi đặt bàn Long bot with MessengerExtensions.getContext :",
+        err
+      );
+      // run fallBack , get userID from URL
+      $("#psid").val(senderId);
+      handleClickButtonReserveTable();
     }
   );
 };
