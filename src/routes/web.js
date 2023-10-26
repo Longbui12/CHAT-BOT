@@ -4,7 +4,7 @@ let router = express.Router();
 
 let initWebRoutes = (app) => {
   router.get("/", HomeController.getHomePage);
-  router.get("/reserve-table", HomeController.handleReserveTable);
+  router.get("/reserve-table/:senderId", HomeController.handleReserveTable);
   router.post("/reserve-table-ajax", HomeController.handlePostReserveTable);
 
   // setup get startrd button , whilelisted domain
