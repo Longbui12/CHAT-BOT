@@ -776,4 +776,5 @@ module.exports = {
   handleDetailViewFish,
   handleDetailViewMeat,
   handleShowDetailRooms,
+  callSendAPI,
 };
