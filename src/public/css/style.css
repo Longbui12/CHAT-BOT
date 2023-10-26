@@ -6,7 +6,7 @@ body {
 }
 
 .fix-height {
-    flex: 1 !important;
+    flex: 1;
 }
 
 a,
