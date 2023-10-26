@@ -174,7 +174,7 @@ let handleGetStarted = (sender_psid) => {
   });
 };
 
-let getStartedTemplate = () => {
+let getStartedTemplate = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -193,7 +193,7 @@ let getStartedTemplate = () => {
               },
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_ORDER}`,
+                url: `${process.env.URL_WEB_VIEW_ORDER}?senderID=${senderID}`,
                 title: "ĐẶT BÀN",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -215,7 +215,7 @@ let getStartedTemplate = () => {
 let handleSendMainMenu = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getMainMenuTemplate();
+      let response1 = getMainMenuTemplate(sender_psid);
 
       await callSendAPI(sender_psid, response1);
 
@@ -226,7 +226,7 @@ let handleSendMainMenu = (sender_psid) => {
   });
 };
 
-let getMainMenuTemplate = () => {
+let getMainMenuTemplate = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -264,7 +264,7 @@ let getMainMenuTemplate = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_ORDER}`,
+                url: `${process.env.URL_WEB_VIEW_ORDER}?senderID=${senderID}`,
                 title: "ĐẶT BÀN",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -723,7 +723,7 @@ let getImageRoomsTemplate = () => {
   return response;
 };
 
-let getButtonRoomsTemplate = () => {
+let getButtonRoomsTemplate = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -738,7 +738,7 @@ let getButtonRoomsTemplate = () => {
           },
           {
             type: "web_url",
-            url: `${process.env.URL_WEB_VIEW_ORDER}`,
+            url: `${process.env.URL_WEB_VIEW_ORDER}?senderID=${senderID}`,
             title: "ĐẶT BÀN",
             webview_height_ratio: "tall",
             messenger_extensions: true,
@@ -753,9 +753,9 @@ let handleShowDetailRooms = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
       // send an image
-      let response1 = getImageRoomsTemplate();
+      let response1 = getImageRoomsTemplate(sender_psid);
       // send a button templates : text, button
-      let response2 = getButtonRoomsTemplate();
+      let response2 = getButtonRoomsTemplate(sender_psid);
       await callSendAPI(sender_psid, response1);
       await callSendAPI(sender_psid, response2);
 
