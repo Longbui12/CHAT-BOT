@@ -777,4 +777,5 @@ module.exports = {
   handleDetailViewMeat,
   handleShowDetailRooms,
   callSendAPI,
+  getUserName,
 };
