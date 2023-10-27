@@ -19,8 +19,8 @@ let writeDataToGoogleSheet = async (data) => {
 
   // Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
   await doc.useServiceAccountAuth({
-    client_email: GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    private_key: GOOGLE_PRIVATE_KEY,
+    client_email: JSON.parse(GOOGLE_SERVICE_ACCOUNT_EMAIL),
+    private_key: JSON.parse(GOOGLE_PRIVATE_KEY),
   });
 
   await doc.loadInfo(); // loads document properties and worksheets
