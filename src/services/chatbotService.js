@@ -187,7 +187,7 @@ let handleGetStarted = (sender_psid) => {
   });
 };
 
-let getStartedTemplate = (senderID) => {
+let getStartedTemplate = () => {
   let response = {
     attachment: {
       type: "template",
@@ -206,7 +206,7 @@ let getStartedTemplate = (senderID) => {
               },
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_ORDER}/${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_ORDER}`,
                 title: "ĐẶT BÀN",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -252,7 +252,7 @@ let getStartedQuickReplyTempalte = () => {
         payload: "<POSTBACK_PAYLOAD>",
 
         // type: "web_url",
-        // url: `${process.env.URL_WEB_VIEW_ORDER}/${senderID}`,
+        // url: `${process.env.URL_WEB_VIEW_ORDER}`,
         // title: "ĐẶT BÀN",
         // webview_height_ratio: "tall",
         // messenger_extensions: true,
@@ -281,7 +281,7 @@ let handleSendMainMenu = (sender_psid) => {
   });
 };
 
-let getMainMenuTemplate = (senderID) => {
+let getMainMenuTemplate = () => {
   let response = {
     attachment: {
       type: "template",
@@ -319,7 +319,7 @@ let getMainMenuTemplate = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_ORDER}/${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_ORDER}`,
                 title: "ĐẶT BÀN",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -778,7 +778,7 @@ let getImageRoomsTemplate = () => {
   return response;
 };
 
-let getButtonRoomsTemplate = (senderID) => {
+let getButtonRoomsTemplate = () => {
   let response = {
     attachment: {
       type: "template",
@@ -793,7 +793,7 @@ let getButtonRoomsTemplate = (senderID) => {
           },
           {
             type: "web_url",
-            url: `${process.env.URL_WEB_VIEW_ORDER}/${senderID}`,
+            url: `${process.env.URL_WEB_VIEW_ORDER}`,
             title: "ĐẶT BÀN",
             webview_height_ratio: "tall",
             messenger_extensions: true,
