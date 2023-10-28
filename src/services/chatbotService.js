@@ -246,7 +246,6 @@ let getStartedQuickReplyTempalte = () => {
         title: "MENU CHÍNH",
         payload: "MAIN_MENU",
       },
-
       {
         content_type: "text",
         title: "HD SỬ DỤNG BOT",
