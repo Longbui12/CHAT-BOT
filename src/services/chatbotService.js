@@ -187,7 +187,7 @@ let handleGetStarted = (sender_psid) => {
   });
 };
 
-let getStartedTemplate = () => {
+let getStartedTemplate = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -206,7 +206,7 @@ let getStartedTemplate = () => {
               },
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_ORDER}`,
+                url: `${process.env.URL_WEB_VIEW_ORDER}/${senderID}`,
                 title: "ĐẶT BÀN",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -246,17 +246,7 @@ let getStartedQuickReplyTempalte = () => {
         title: "MENU CHÍNH",
         payload: "MAIN_MENU",
       },
-      {
-        content_type: "text",
-        title: "ĐẶT BÀN",
-        payload: "<POSTBACK_PAYLOAD>",
 
-        // type: "web_url",
-        // url: `${process.env.URL_WEB_VIEW_ORDER}`,
-        // title: "ĐẶT BÀN",
-        // webview_height_ratio: "tall",
-        // messenger_extensions: true,
-      },
       {
         content_type: "text",
         title: "HD SỬ DỤNG BOT",
@@ -281,7 +271,7 @@ let handleSendMainMenu = (sender_psid) => {
   });
 };
 
-let getMainMenuTemplate = () => {
+let getMainMenuTemplate = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -319,7 +309,7 @@ let getMainMenuTemplate = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_ORDER}`,
+                url: `${process.env.URL_WEB_VIEW_ORDER}/${senderID}`,
                 title: "ĐẶT BÀN",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -335,7 +325,7 @@ let getMainMenuTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "CHI TIẾT CỦA PHÒNG",
+                title: "CHI TIẾT",
                 payload: "SHOW_ROOMS",
               },
             ],
@@ -778,7 +768,7 @@ let getImageRoomsTemplate = () => {
   return response;
 };
 
-let getButtonRoomsTemplate = () => {
+let getButtonRoomsTemplate = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -793,7 +783,7 @@ let getButtonRoomsTemplate = () => {
           },
           {
             type: "web_url",
-            url: `${process.env.URL_WEB_VIEW_ORDER}`,
+            url: `${process.env.URL_WEB_VIEW_ORDER}/${senderID}`,
             title: "ĐẶT BÀN",
             webview_height_ratio: "tall",
             messenger_extensions: true,
