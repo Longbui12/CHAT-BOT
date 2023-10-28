@@ -45,6 +45,7 @@ const IMAGE_DETAIL_MEAT_3 =
 
 const IMAGE_DETAIL_ROOMS = "https://bit.ly/long-bot1";
 
+const IMAGE_GIF_WELCOME = "https://bit.ly/eric-bot-1-2";
 // Handle function
 
 let callSendAPI = async (sender_psid, response) => {
@@ -160,13 +161,19 @@ let handleGetStarted = (sender_psid) => {
       let response1 = {
         text: `Xin chào mừng bạn ${username} đến với nhà hàng của chúng tôi .`,
       };
-      let response2 = getStartedTemplate();
-
+      //let response2 = getStartedTemplate();
+      // send an Image
+      let response2 = getImageGetStartedTemplate();
+      let response3 = getStartedQuickReplyTempalte();
       // send text message
       await callSendAPI(sender_psid, response1);
 
-      // send generic template message
+      // send an image
       await callSendAPI(sender_psid, response2);
+
+      //send a quick reply
+      await callSendAPI(sender_psid, response3);
+
       resolve("done");
     } catch (e) {
       reject(e);
@@ -208,6 +215,48 @@ let getStartedTemplate = (senderID) => {
         ],
       },
     },
+  };
+  return response;
+};
+
+let getImageGetStartedTemplate = () => {
+  let response = {
+    attachment: {
+      type: "image",
+      payload: {
+        url: IMAGE_GIF_WELCOME,
+        is_reusable: true,
+      },
+    },
+  };
+  return response;
+};
+let getStartedQuickReplyTempalte = () => {
+  let response = {
+    text: "Dưới đây là các lựa chọn của nhà hàng :",
+    quick_replies: [
+      {
+        content_type: "text",
+        title: "MENU CHÍNH",
+        payload: "MAIN_MENU",
+      },
+      {
+        content_type: "text",
+        title: "ĐẶT BÀN",
+        payload: "<POSTBACK_PAYLOAD>",
+
+        // type: "web_url",
+        // url: `${process.env.URL_WEB_VIEW_ORDER}/${senderID}`,
+        // title: "ĐẶT BÀN",
+        // webview_height_ratio: "tall",
+        // messenger_extensions: true,
+      },
+      {
+        content_type: "text",
+        title: "HƯỚNG DẪN SỬ DỤNG BOT",
+        payload: "GUIDE_TO_USE",
+      },
+    ],
   };
   return response;
 };
