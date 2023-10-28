@@ -111,9 +111,18 @@ let getWebhook = (req, res) => {
 };
 
 // Handles message events
-function handleMessage(sender_psid, received_message) {
+async function handleMessage(sender_psid, received_message) {
   let response;
 
+  // check messages for quick reply
+  if (received_message.quick_reply && received_message.quick_reply.payload) {
+    if (received_message.quick_reply.payload === "MAIN_MENU") {
+      await chatbotService.handleSendMainMenu(sender_psid);
+    }
+    if (received_message.quick_reply.payload === "GUIDE_TO_USE") {
+    }
+    return;
+  }
   if (received_message.text) {
     response = {
       text: `You sent the message: "${received_message.text}". Now send me an attachment!`,
