@@ -71,6 +71,9 @@ let callSendAPI = async (sender_psid, response) => {
           json: request_body,
         },
         (err, res, body) => {
+          console.log("****************");
+          console.log("check body :", body);
+          console.log("****************");
           if (!err) {
             resolve("message sent!");
           } else {
@@ -816,7 +819,7 @@ let handleGuideToUseBot = (sender_psid) => {
       // send text message
       let username = await getUserName(sender_psid);
       let response1 = {
-        text: `Xin chào mừng bạn ${username} , mình là chatbot nhà hàng Peter.\n Để biết thêm thông tin, bạn vui lòng xem video bên dưới 😀👌`,
+        text: `Xin chào mừng bạn ${username} , mình là chatbot nhà hàng Peter.\nĐể biết thêm thông tin, bạn vui lòng xem video bên dưới 😀👌`,
       };
       // send a media templates : video, button
       let response2 = getBotMediaTemplate(sender_psid);
