@@ -842,7 +842,9 @@ let getBotMediaTemplate = () => {
         elements: [
           {
             media_type: "video",
-            attachment_id: "1078313096531843",
+            //attachment_id: "1078313096531843",
+
+            url: "https://business.facebook.com/Peter%20Restaurant/videos/1078313096531843",
             buttons: [
               {
                 type: "postback",
