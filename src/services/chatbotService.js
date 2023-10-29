@@ -809,6 +809,60 @@ let handleShowDetailRooms = (sender_psid) => {
     }
   });
 };
+
+let handleGuideToUseBot = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      // send text message
+      let username = await getUserName(sender_psid);
+      let response1 = {
+        text: `Xin chào mừng bạn ${username} , mình là chatbot nhà hàng Peter.\n
+          Để biết thêm thông tin, bạn vui lòng xem video bên dưới 😀👌
+        `,
+      };
+      // send a media templates : video, button
+      let response2 = getBotMediaTemplate(sender_psid);
+      await callSendAPI(sender_psid, response1);
+      await callSendAPI(sender_psid, response2);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+let getBotMediaTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "media",
+        elements: [
+          {
+            media_type: "video",
+            attachment_id: "1078313096531843",
+            buttons: [
+              {
+                type: "postback",
+                title: "MENU CHÍNH",
+                payload: "MAIN_MENU",
+              },
+
+              {
+                type: "web_url",
+                title: "Test cho Long chat bot",
+                url: "https://www.youtube.com/watch?v=A-tX5PI3V0o",
+                webview_height_ratio: "full",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
 module.exports = {
   handleGetStarted,
   handleSendMainMenu,
@@ -822,4 +876,5 @@ module.exports = {
   handleShowDetailRooms,
   callSendAPI,
   getUserName,
+  handleGuideToUseBot,
 };
