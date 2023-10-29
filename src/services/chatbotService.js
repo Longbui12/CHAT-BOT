@@ -854,7 +854,7 @@ let getBotMediaTemplate = () => {
 
               {
                 type: "web_url",
-                title: "Test cho Long chat bot",
+                title: "Thêm thông tin",
                 url: "https://www.youtube.com/watch?v=A-tX5PI3V0o",
                 webview_height_ratio: "full",
               },
